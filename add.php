@@ -1,6 +1,8 @@
 <?php 
 
     require_once('./config/dbconfig.php');
+
+      session_start();
     $db = new operations();
     
                       
@@ -10,7 +12,7 @@
                 $des = ($_POST['description']);
                 $dat = ($_POST['dates']);
                  $cat = ($_POST['category']);
-                $id = ($_SESSION['id']);
+                 $id = ($_SESSION['id']);
                 $tit = ($_POST['title']);
                 
 

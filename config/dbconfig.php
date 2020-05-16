@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    
     require_once('./config/operations.php');
 
     class dbconfig
@@ -17,7 +17,7 @@
         
         $servername = "localhost";
         $username = "root";
-        $password = "abdilah";
+        $password = "";
 
      try {
        $this->connection = new PDO("mysql:host=$servername;dbname=ads", $username, $password);

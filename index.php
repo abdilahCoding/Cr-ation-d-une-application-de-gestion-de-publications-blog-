@@ -42,7 +42,7 @@
           <li class="nav-item ">
           	<?php
           	// require_once('./config/dbconfig.php');
-          	session_start();
+          
          
           	if (isset($_SESSION['user'])) {
           		echo '<a class="nav-link" href="profile.php">Profile <span class="sr-only">(current)</span></a>';

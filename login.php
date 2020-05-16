@@ -29,7 +29,7 @@
 				<h1>Create Account</h1>
 
 			      <span><?php echo $msg;   ?></span>
-                <span><?php echo $$usErr;   ?></span>
+                <span><?php echo $usErr;   ?></span>
 				<input type="text" name="username" placeholder="username" />
 				<span><?php echo $passErr;   ?></span>
 				<input type="password" name="password" placeholder="Password" />
@@ -38,11 +38,11 @@
 		</div>
 		<div class="form-container sign-in-container">   
 			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-				<h1>Sign in</h1>
-                <span style="color: red"><?php echo $ms;?></span>
-                 <span><?php echo $$userErr;   ?></span>
+				<!-- <h1>Sign in</h1>
+                <span style="color: red"><?php echo $ms;?></span> -->
+                <!--  <span><?php echo $userErr;   ?></span> -->
 				<input type="text" name="username"   placeholder="username" />
-				  <span><?php echo $passwordErr;   ?></span>
+				 <!--  <span><?php echo $passwordErr;   ?></span> -->
 				<input type="password" name="password" placeholder="Password" />
 				<a href="#">Forgot your password?</a>
 				<button type="submit" name="login">Sign In</button>

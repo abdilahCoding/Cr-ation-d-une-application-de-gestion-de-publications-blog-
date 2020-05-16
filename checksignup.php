@@ -3,35 +3,21 @@
 
 require_once('./config/dbconfig.php');
  
-     $userErr =$passwordErr=$msg="" ;
+     $usErr =$passErr=$msg="" ;
       $username= $password="";
 
 
      if (isset($_POST['register'])) {
- 
+      $username = test_inpu(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
+      $password =test_inpu(filter_var($_POST['password'], FILTER_SANITIZE_STRING));
 
-  if (empty($_POST["username"])) {
-    $usErr = "Name is required";
-  } else {
-    $username = test_inpu(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$username)) {
-      $usErr = "Only letters and white space allowed";
-    }
-  }
-  
+      if (empty($username) OR empty($password)) {
+          
+          echo "please fill input";   
 
-    
+      }else{
 
-  if (empty($_POST["password"])) {
-    $passErr = "password is required";
-  } else {
-    $password =test_inpu(filter_var($_POST['password'], FILTER_SANITIZE_STRING));
-   
-  }
-
-
-
+     
  $stmt = $db->connection->prepare('SELECT * FROM utilisateur WHERE username= ? ');
     $stmt->execute(array($username));
      $rows = $stmt->rowCount();
@@ -39,22 +25,27 @@ require_once('./config/dbconfig.php');
 
     if($rows > 0)
     {
-        echo $msg= "is already exist";
+        echo $msg= "is already exist enter another username";
         
-    }
+    }else{
 
-
+        
   $stmt = $db->connection->prepare('INSERT INTO utilisateur (username, password) VALUES (?, ?)');
-    $stmt->execute(array($username,$password));
-    $rows = $stmt->rowCount();
-
- if($row){
+   $ro = $stmt->execute(array($username,$password));
+    
+ if($ro){
 
       echo $msg= "sigup is success";
           }
 
+}
 
-   }
+    }
+
+}
+
+
+   
 
 
 

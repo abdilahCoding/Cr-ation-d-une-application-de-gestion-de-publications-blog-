@@ -25,7 +25,7 @@
         // View Database Record
         public function view_record() {
             global $db;
-           $stmt = $db->connection->prepare("SELECT * FROM publication");
+            $stmt = $db->connection->prepare('SELECT * FROM publication');
            $stmt->execute();
             $result=$stmt->fetchAll();
            return $result;
